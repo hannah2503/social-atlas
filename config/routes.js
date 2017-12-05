@@ -1,10 +1,12 @@
 const router = require('express').Router();
+const secureRoute = require('../lib/secureRoute');
 const auth  = require('../controllers/auth');
 const bars  = require('../controllers/bars');
+const users  = require('../controllers/users');
 
 router.route('/bars')
   .get(bars.index)
-  .post(bars.create);
+  .post(secureRoute, bars.create);
 
 router.route('/bars/:id')
   .get(bars.show)
@@ -16,6 +18,14 @@ router.route('/register')
 
 router.route('/login')
   .post(auth.login);
+
+router.route('/users')
+  .get(users.index);
+
+router.route('/users/:id')
+  .get(users.show)
+  .put(users.update)
+  .delete(users.delete);
 
 router.route('/bars/:id/comments')
   .post(bars.createComment);

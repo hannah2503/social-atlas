@@ -1,0 +1,21 @@
+
+form {
+  font-size: 0.7em;
+  text-transform: lowercase;
+  margin: auto;
+  width: 50%;
+
+  label {
+    padding: 5px;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+}

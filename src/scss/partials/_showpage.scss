@@ -1,0 +1,37 @@
+.show {
+  margin: auto;
+  width: 50%;
+
+  img {
+    max-width: 100%;
+  }
+
+
+
+  .google-map {
+    height: 300px;
+  }
+
+
+  .type {
+    text-transform: uppercase;
+  }
+
+  .categories {
+    color: grey;
+    margin-bottom: 10px;
+    width: 50%;
+
+    .category {
+      display: block;
+    }
+  }
+
+  .buttons {
+    margin-bottom: 10px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}

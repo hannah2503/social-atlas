@@ -3,12 +3,12 @@ const bcrypt = require('bcrypt');
 
 
 const userSchema = new mongoose.Schema({
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
-  email: { type: String, required: true },
+  firstName: { type: String, required: 'Please provide first name' },
+  lastName: { type: String, required: 'Please provide last name' },
+  email: { type: String, required: 'Please provide email', unique: 'You might already have an account with us.' },
   picture: { type: String },
-  favorites: [{ type: mongoose.Schema.ObjectId, ref: 'Bar', required: true }],
-  password: { type: String, required: true }
+  favorites: [{ type: mongoose.Schema.ObjectId, ref: 'Bar' }],
+  password: { type: String, required: 'A password is required' }
 });
 
 userSchema

@@ -1,8 +1,12 @@
 const router = require('express').Router();
-const secureRoute = require('../lib/secureRoute');
-const auth  = require('../controllers/auth');
+
+
 const bars  = require('../controllers/bars');
 const users  = require('../controllers/users');
+
+const auth  = require('../controllers/auth');
+const secureRoute = require('../lib/secureRoute');
+
 
 router.route('/bars')
   .get(bars.index)
@@ -10,28 +14,28 @@ router.route('/bars')
 
 router.route('/bars/:id')
   .get(bars.show)
-  .post(bars.update)
-  .delete(bars.delete);
+  .put(secureRoute, bars.update)
+  .delete(secureRoute, bars.delete);
+
+router.route('/users')
+  .get(secureRoute, users.index);
+
+router.route('/users/:id')
+  .get(secureRoute, users.show)
+  .put(secureRoute, users.update)
+  .delete(secureRoute, users.delete);
+
+router.route('/bars/:id/comments')
+  .post(secureRoute, bars.createComment);
+
+router.route('/bars/:id/comments/:commentId')
+  .delete(secureRoute, bars.deleteComment);
 
 router.route('/register')
   .post(auth.register);
 
 router.route('/login')
   .post(auth.login);
-
-router.route('/users')
-  .get(users.index);
-
-router.route('/users/:id')
-  .get(users.show)
-  .put(users.update)
-  .delete(users.delete);
-
-router.route('/bars/:id/comments')
-  .post(bars.createComment);
-
-router.route('/bars/:id/comments/:commentId')
-  .delete(bars.deleteComment);
 
 router.route('/*')
   .all((req, res) => res.notFound());

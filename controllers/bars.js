@@ -10,8 +10,7 @@ function barsIndex(req, res, next) {
 }
 
 function barsCreate(req, res, next) {
-
-  // if(req.file) req.body.image = req.file.filename;
+  
   req.body.createdBy = req.currentUser;
 
   Bar

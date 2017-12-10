@@ -8,7 +8,7 @@ function register(req, res, next) {
     .then(user => {
       const token = jwt.sign({ userId: user.id }, secret, { expiresIn: '1hr' });
 
-      return res.json({ message: `Welcome ${user.username}`, token });
+      return res.json({ message: `Welcome ${user.firstName}`, token });
     })
     .catch(next);
 }

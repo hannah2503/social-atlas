@@ -14,18 +14,13 @@ commentSchema.methods.belongsTo = function commentBelongsTo(user) {
 
 const barSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  address: {
-    line1: String,
-    line2: String,
-    city: { type: String, required: true },
-    postcode: { type: String, required: true },
-    country: { type: String, required: true }
-  },
+  address: { type: String, required: true },
+  location: { lat: Number, lng: Number },
   image: { type: String, required: true },
   website: { type: String, required: true },
   description: { type: String, required: true },
-  category: { type: String, required: true },
-  type: [{ type: String, required: true }],
+  type: { type: String, required: true },
+  category: [{ type: String, required: true }],
   rating: { type: Number, required: true },
   comments: [commentSchema],
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }

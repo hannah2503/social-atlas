@@ -1,0 +1,50 @@
+.box {
+  border-bottom: 1px solid black;
+  float: left;
+  height: 500px;
+  margin-top: 10px;
+  margin-right: 10px;
+  overflow: auto;
+  max-width: 375px;
+
+  .imgContainer {
+    height: 200px;
+    overflow: hidden;
+
+    img {
+      max-width: 375px;
+    }
+  }
+
+  .type {
+    text-transform: uppercase;
+  }
+
+  .categories {
+    color: grey;
+
+    .category {
+      display: block;
+    }
+  }
+
+  a {
+    color: grey;
+    text-decoration: none;
+
+
+    a:active {
+      background: grey;
+      color: white;
+    }
+
+    a:hover {
+      background: grey;
+      color: white;
+    }
+  }
+
+  .stars {
+    margin-left: 20px;
+  }
+}

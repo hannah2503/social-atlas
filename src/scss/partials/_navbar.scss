@@ -1,0 +1,37 @@
+.logo {
+  background: grey;
+  color: white;
+  height: 50px;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  h1 {
+    line-height: 50px;
+  }
+}
+
+nav {
+  background: white;
+  color: grey;
+  height: 80px;
+
+  a {
+    border: 1px solid grey;
+    color: grey;
+    line-height: 80px;
+    padding: 5px;
+    text-decoration: none;
+  }
+
+  a:active {
+    background: grey;
+    color: white;
+  }
+
+  a:hover {
+    background: grey;
+    color: white;
+  }
+}

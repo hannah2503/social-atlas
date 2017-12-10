@@ -1,7 +1,8 @@
-html {
-  box-sizing: border-box;
-}
+@import './partials/_fonts.scss';
 
-body {
-  font-family: Arial, sans-serif;
-}
+@import './partials/_body.scss';
+@import './partials/_navbar.scss';
+@import './partials/_showpage.scss';
+@import './partials/_forms.scss';
+@import './partials/_indexpage.scss';
+@import './partials/_button.scss';

@@ -7,7 +7,7 @@ const SearchBar = ({ handleSort, handleSearch }) => {
         <option value="name|asc">Name (A - Z)</option>
         <option value="name|desc">Name (Z - A)</option>
       </select>
-      <form type="text" placeholder="Search" onChange={handleSearch}/>
+      <input type="text" placeholder="Search" onChange={handleSearch}/>
     </div>
   );
 };

@@ -39,7 +39,7 @@ class BarsIndex extends React.Component {
 
     const orderedBars = _.orderBy(this.state.bars, [sortBy], [sortDirection]);
     const bars = _.filter(orderedBars, (bar) => {
-      return regex.test(bar.name) || regex.test(bar.location);
+      return regex.test(bar.name) || regex.test(bar.address);
     });
     return(
       <div>

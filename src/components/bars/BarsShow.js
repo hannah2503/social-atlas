@@ -4,6 +4,7 @@ import Axios from 'axios';
 import Auth from '../../lib/Auth';
 import BackButton from '../utilities/BackButton';
 import GoogleMap from '../utilities/GoogleMap';
+import CommentBox from '../utilities/CommentBox';
 
 class BarsShow extends React.Component {
   state = {
@@ -19,7 +20,8 @@ class BarsShow extends React.Component {
       description: '',
       category: [],
       type: '',
-      rating: ''
+      rating: '',
+      comments: []
     },
     errors: {}
   };
@@ -43,8 +45,28 @@ class BarsShow extends React.Component {
       .catch(err => console.log(err));
   }
 
+  handleChange = ({ target: { name, value } }) => {
+    const comment = Object.assign({}, this.state.bar.comments, {[name]: value});
+    this.setState({ comment });
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+    console.log('clicked submit comment!', this); //this is undefined
+
+    Axios
+      .post(`/api/bars/${this.props.bar.id}/comments`, this.state.bar.comments, {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+      .then(() => this.props.history.push(`/bars/${this.props.match.params.id}`))
+      .catch(err => this.setState({ errors: err.response.data.errors }));
+
+  }
+
+
 
   render(){
+    console.log(this.state.bar);
     const stars = [];
     for (var i = 0; i < this.state.bar.rating; i++) stars.push(1);
     console.log(this.state.bar.location, 'location on render');
@@ -76,6 +98,13 @@ class BarsShow extends React.Component {
 
           {this.state.bar.location.lat && <GoogleMap center={this.state.bar.location} />}
 
+          <hr/>
+          <h2>Comments:</h2>
+
+          {/* {this.state.bar.comments && this.state.bar.comments.map((comment, i) => {
+            <p key={i}>{comment[i].content}</p>;
+          })} */}
+          <CommentBox handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
           <hr/>
           <BackButton />
         </div>

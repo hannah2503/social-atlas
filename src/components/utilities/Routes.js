@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+import ProtectedRoute from './ProtectedRoute';
 import BarsIndex from '../../components/bars/BarsIndex';
 import BarsNew from '../../components/bars/BarsNew';
 import BarsShow from '../../components/bars/BarsShow';
@@ -15,15 +16,18 @@ const Routes = () => {
   return (
     <Switch>
       <Route exact path="/" component={Home}/>
-      <Route exact path="/bars" component={BarsIndex} />
+
+      <ProtectedRoute exact path="/bars/:id" component={BarsShow} />
+      <ProtectedRoute exact path="/bars/:id/edit" component={BarsEdit} />
+
+      <ProtectedRoute exact path="/bars" component={BarsIndex} />
       <Route path="/bars/new" component={BarsNew} />
-      <Route exact path="/bars/:id" component={BarsShow} />
-      <Route exact path="/bars/:id/edit" component={BarsEdit} />
-      <Route path="/users/:id" component={UsersShow}/>
-      <Route path="/users" component={UsersIndex}/>
+
+      <ProtectedRoute path="/users/:id" component={UsersShow}/>
+      <ProtectedRoute path="/users" component={UsersIndex}/>
+
       <Route path="/login" component={Login}/>
       <Route path="/register" component={Register}/>
-
     </Switch>
   );
 };

@@ -11,8 +11,8 @@ const Navbar = ({ history }) => {
     history.push('/login');
   };
 
-
-
+  const user = Auth.getPayload();
+  console.log(user, 'this is the user');
 
   return(
     <div>
@@ -22,7 +22,7 @@ const Navbar = ({ history }) => {
       <nav>
         {Auth.isAuthenticated() &&<Link to="/bars">Index</Link>}
         {' '}
-        {/* {Auth.isAuthenticated() &&<Link to={`/users/${Auth.user.id}`}>My Profile</Link>} */}
+        {Auth.isAuthenticated() &&<Link to={`/users/${user.userId}`}>My Profile</Link>}
         {' '}
         {! Auth.isAuthenticated() && <Link to="/login">Login</Link>}
         {' '}

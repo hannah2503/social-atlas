@@ -6,7 +6,6 @@ import React from 'react';
 class GoogleMap extends React.Component {
 
   componentDidMount() {
-    console.log('inside GMap', this.props.center);
     this.map = new google.maps.Map(this.mapCanvas, {
       center: this.props.center,
       zoom: 14,

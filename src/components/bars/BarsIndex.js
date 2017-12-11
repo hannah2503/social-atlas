@@ -37,9 +37,11 @@ class BarsIndex extends React.Component {
     const regex = new RegExp(query, 'i');
 
     const orderedBars = _.orderBy(this.state.bars, [sortBy], [sortDirection]);
+
     const bars = _.filter(orderedBars, (bar) => {
       return regex.test(bar.name) || regex.test(bar.address);
     });
+
     return(
       <div>
         <Link to='/bars/new' className="grey-button">add a place</Link>
@@ -49,13 +51,19 @@ class BarsIndex extends React.Component {
           return(
             <div key={i}>
               <div className="box">
+
                 <div className="imgContainer">
                   <img src={bar.image}/>
                 </div>
+
                 <p className="type">{bar.type}</p>
+
                 <Link to={`/bars/${bar.id}`}>{bar.name}</Link>
+
                 <span className="stars">{bar.rating}</span>
+
                 <p>{bar.address}</p>
+
                 <p className="categories">
                   <span className="category">{bar.category[0]}</span>
                   <span className="category">{bar.category[1]}</span>
@@ -63,18 +71,16 @@ class BarsIndex extends React.Component {
                   <span className="category">{bar.category[3]}</span>
                   <span className="category">{bar.category[4]}</span>
                 </p>
-                <p> Created by: <Link to={`/users/${bar.createdBy.id}`}>{bar.createdBy.id}</Link></p>
+
+                <p>Author: <Link to={`/users/${bar.createdBy.id}`}>{bar.createdBy.firstName}</Link></p>
               </div>
             </div>
           );
         })}
 
       </div>
-
     );
   }
 
 }
-
-
 export default BarsIndex;

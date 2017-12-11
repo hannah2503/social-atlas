@@ -6,17 +6,17 @@ import React from 'react';
 class GoogleMap extends React.Component {
 
   componentDidMount() {
+    console.log('inside GMap', this.props.center);
     this.map = new google.maps.Map(this.mapCanvas, {
-      center: this.props.location,
+      center: this.props.center,
       zoom: 14,
       clickableIcons: false,
       disableDefaultUI: true
     });
 
-    console.log(this.props.location);
     this.marker = new google.maps.Marker({
       map: this.map,
-      position: this.props.location,
+      position: this.props.center,
       animation: google.maps.Animation.DROP
     });
   }
@@ -31,7 +31,7 @@ class GoogleMap extends React.Component {
 
   render() {
     return (
-      <div className="google-map" ref={element => this.mapCanvas = element}></div>
+      <div className="google-map" ref={element => this.mapCanvas = element}>Google Map Will Appear Here...</div>
     );
   }
 }

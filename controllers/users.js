@@ -9,6 +9,7 @@ function usersIndex(req, res) {
 }
 
 function usersShow(req, res) {
+
   User.findById(req.params.id)
     .exec()
     .then(user => {

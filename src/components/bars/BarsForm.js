@@ -49,8 +49,8 @@ const BarsForm = ({ handleChange, handleSubmit, handleLocationChange, handleMult
         <label>Rating</label>
         <input multiple type="Number" name="rating" onChange={ handleChange } value={bar.rating}/>
         <br/>
-        <button type="submit">save</button>
-        <Link to="/bars"><button>Back</button></Link>
+        <input type="submit" className="grey-button" value="save"/>
+        <Link to="/bars" className="grey-button">Back</Link>
       </form>
     </div>
   );

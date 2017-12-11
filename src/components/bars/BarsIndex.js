@@ -31,7 +31,6 @@ class BarsIndex extends React.Component {
   }
 
 
-
   render(){
 
     const { sortBy, sortDirection, query } = this.state;
@@ -43,7 +42,7 @@ class BarsIndex extends React.Component {
     });
     return(
       <div>
-        <Link to='/bars/new'><button>add a place</button></Link>
+        <Link to='/bars/new' className="grey-button">add a place</Link>
         <SearchBar handleSort={this.handleSort} handleSearch={this.handleSearch}/>
 
         {bars.map((bar, i) => {
@@ -64,6 +63,7 @@ class BarsIndex extends React.Component {
                   <span className="category">{bar.category[3]}</span>
                   <span className="category">{bar.category[4]}</span>
                 </p>
+                <p> Created by: <Link to={`/users/${bar.createdBy.id}`}>{bar.createdBy.id}</Link></p>
               </div>
             </div>
           );

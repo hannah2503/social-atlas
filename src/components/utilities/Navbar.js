@@ -11,6 +11,9 @@ const Navbar = ({ history }) => {
     history.push('/login');
   };
 
+
+
+
   return(
     <div>
       <div className="logo">
@@ -19,7 +22,7 @@ const Navbar = ({ history }) => {
       <nav>
         {Auth.isAuthenticated() &&<Link to="/bars">Index</Link>}
         {' '}
-        {Auth.isAuthenticated() &&<Link to="/users/:id">My Profile</Link>}
+        {/* {Auth.isAuthenticated() &&<Link to={`/users/${Auth.user.id}`}>My Profile</Link>} */}
         {' '}
         {! Auth.isAuthenticated() && <Link to="/login">Login</Link>}
         {' '}

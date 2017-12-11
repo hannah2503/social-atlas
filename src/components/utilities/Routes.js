@@ -8,6 +8,7 @@ import BarsEdit from '../../components/bars/BarsEdit';
 import Login from '../../components/auth/Login';
 import Register from '../../components/auth/Register';
 import UsersShow from '../../components/users/UsersShow';
+import UsersIndex from '../../components/users/UsersIndex';
 import Home from '../../components/bars/Home';
 
 const Routes = () => {
@@ -18,9 +19,11 @@ const Routes = () => {
       <Route path="/bars/new" component={BarsNew} />
       <Route exact path="/bars/:id" component={BarsShow} />
       <Route exact path="/bars/:id/edit" component={BarsEdit} />
+      <Route path="/users/:id" component={UsersShow}/>
+      <Route path="/users" component={UsersIndex}/>
       <Route path="/login" component={Login}/>
       <Route path="/register" component={Register}/>
-      <Route path="/users/:id" component={UsersShow}/>
+
     </Switch>
   );
 };

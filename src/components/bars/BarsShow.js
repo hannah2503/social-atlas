@@ -24,6 +24,8 @@ class BarsShow extends React.Component {
     errors: {}
   };
 
+
+
   deleteBar = () => {
     Axios
       .delete(`/api/bars/${this.props.match.params.id}`, {
@@ -58,6 +60,7 @@ class BarsShow extends React.Component {
           <p>{this.state.bar.address}</p>
           <p>{this.state.bar.description}</p>
 
+
           <div className="categories">
             <span className="category">{this.state.bar.category[0]}</span>
             <span className="category">{this.state.bar.category[1]}</span>
@@ -67,11 +70,12 @@ class BarsShow extends React.Component {
           </div>
 
           <div className="buttons">
-            <Link to={`/bars/${this.state.bar.id}/edit`}><button>Edit</button></Link>
-            <button onClick={this.deleteBar}>Delete</button>
+            <Link to={`/bars/${this.state.bar.id}/edit`} className="grey-button">Edit</Link>
+            <a onClick={this.deleteBar} className="grey-button">Delete</a>
           </div>
 
-          <GoogleMap center={this.state.bar.location} />
+          {this.state.bar.location.lat && <GoogleMap center={this.state.bar.location} />}
+
           <hr/>
           <BackButton />
         </div>

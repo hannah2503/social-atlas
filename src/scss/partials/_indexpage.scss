@@ -48,3 +48,17 @@
     margin-left: 20px;
   }
 }
+
+
+
+  .search-input{
+    font-family: 'Cutive Mono', monospace;
+    font-size: 1em;
+    height: 40px;
+    margin-right: 10px;
+    width: 200px;
+
+    select {
+      border-radius: 0;
+    }
+  }

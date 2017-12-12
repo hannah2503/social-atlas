@@ -8,7 +8,7 @@ const Navbar = ({ history }) => {
   const logout = (e) => {
     e.preventDefault();
     Auth.logout();
-    history.push('/login');
+    history.push('/');
   };
 
   const user = Auth.getPayload();
@@ -20,15 +20,15 @@ const Navbar = ({ history }) => {
         <Link to="/"><h1>the social atlas</h1></Link>
       </div>
       <nav>
-        {Auth.isAuthenticated() &&<Link to="/bars">Index</Link>}
+        {Auth.isAuthenticated() &&<Link to="/bars">the atlas</Link>}
         {' '}
-        {Auth.isAuthenticated() &&<Link to={`/users/${user.userId}`}>My Profile</Link>}
+        {Auth.isAuthenticated() &&<Link to={`/users/${user.userId}`}>my profile</Link>}
         {' '}
-        {! Auth.isAuthenticated() && <Link to="/login">Login</Link>}
+        {! Auth.isAuthenticated() && <Link to="/login">login</Link>}
         {' '}
-        {! Auth.isAuthenticated() && <Link to="/register">Register</Link>}
+        {! Auth.isAuthenticated() && <Link to="/register">register</Link>}
         {' '}
-        {Auth.isAuthenticated() && <a href="#" onClick={logout}>Logout</a>}
+        {Auth.isAuthenticated() && <a href="#" onClick={logout}>logout</a>}
       </nav>
       <hr/>
     </div>

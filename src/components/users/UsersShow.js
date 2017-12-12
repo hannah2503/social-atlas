@@ -19,12 +19,20 @@ class UsersShow extends React.Component {
       .catch(err => console.log(err));
   }
 
+  barsSaved = () => {
+
+
+  }
+
+
   render() {
     return(
       <div className="wrapper">
-        <div>User Show</div>
+        <h1>Your Profile</h1>
         <img className="userPicture" src={this.state.user.picture}/>
         <h1>{this.state.user.firstName}{' '}{this.state.user.lastName}</h1>
+        <h3>Favourites:</h3>
+
       </div>
     );
   }

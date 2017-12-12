@@ -4,8 +4,6 @@ import Auth from '../../lib/Auth';
 
 import BarsForm from './BarsForm';
 
-const category = [];
-
 class BarsEdit extends React.Component {
 
 
@@ -24,6 +22,7 @@ class BarsEdit extends React.Component {
       category: [],
       rating: ''
     },
+    categories: ['Fun with Friends', 'Date Night', 'Family Meal', 'Light Bite', 'Experimental'],
     errors: {}
   };
 
@@ -40,14 +39,19 @@ class BarsEdit extends React.Component {
     this.setState({ bar });
   }
 
-  handleMultipleInput = (e) => {
-    const chosen = e.target.checked;
-    console.log(chosen);
-
-    if (chosen){
-      const newCategories = Object.assign({}, this.state.bar.category.push(e.target.value));
-      this.setState({category: newCategories});
+  handleMultipleInput = ({ target: { name, value } }) => {
+    console.log(name, value);
+    let newBarCategories;
+    if (!this.state.bar.category.includes(value)) {
+      newBarCategories = this.state.bar.category.concat(value);
+    } else {
+      newBarCategories = this.state.bar.category.filter(category => category !== value);
     }
+    const bar = Object.assign({}, this.state.bar, {[name]: newBarCategories});
+    console.log(newBarCategories);
+    this.setState({ bar }, () => {
+      console.log(this.state.bar);
+    });
   }
 
   handleLocationChange = (name, address, location, website) => {
@@ -57,8 +61,6 @@ class BarsEdit extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log('edit submit was hit!', this);
     console.log('submit was hit and this is what I sent:', this.state.bar);
 
     Axios
@@ -76,6 +78,7 @@ class BarsEdit extends React.Component {
         handleSubmit={this.handleSubmit}
         handleLocationChange={this.handleLocationChange}
         handleMultipleInput={this.handleMultipleInput}
+        categories={this.state.categories}
         bar={this.state.bar}
         errors={this.state.errors}
       />

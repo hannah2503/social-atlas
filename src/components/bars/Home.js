@@ -3,7 +3,7 @@ import React from 'react';
 const Home = () => {
 
   return(
-    <h1>welcome to the social atlas</h1>
+    <img className="home" src='../../assets/socialatlaslogo.jpg'/>
   );
 };
 

@@ -14,18 +14,15 @@ import Home from '../../components/bars/Home';
 
 const Routes = () => {
   return (
+    //this is the optimum order for rendering pages!!!
     <Switch>
       <Route exact path="/" component={Home}/>
-
-      <ProtectedRoute exact path="/bars/:id" component={BarsShow} />
-      <ProtectedRoute exact path="/bars/:id/edit" component={BarsEdit} />
-
       <ProtectedRoute exact path="/bars" component={BarsIndex} />
-      <Route path="/bars/new" component={BarsNew} />
-
+      <ProtectedRoute path="/bars/new" component={BarsNew} />
+      <ProtectedRoute path="/bars/:id/edit" component={BarsEdit} />
+      <ProtectedRoute path="/bars/:id" component={BarsShow} />
       <ProtectedRoute path="/users/:id" component={UsersShow}/>
       <ProtectedRoute path="/users" component={UsersIndex}/>
-
       <Route path="/login" component={Login}/>
       <Route path="/register" component={Register}/>
     </Switch>

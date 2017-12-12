@@ -1,6 +1,6 @@
 
 form {
-  font-size: 0.7em;
+  font-size: 1em;
   text-transform: lowercase;
   margin: auto;
   width: 50%;
@@ -18,4 +18,11 @@ form {
     border-radius: 4px;
     box-sizing: border-box;
   }
+
+  .checkbox {
+    display: inline;
+    margin-left: 20px;
+    width: 30px;
+  }
+
 }

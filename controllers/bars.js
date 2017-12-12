@@ -10,7 +10,6 @@ function barsIndex(req, res, next) {
 }
 
 function barsCreate(req, res, next) {
-  
   req.body.createdBy = req.currentUser;
 
   Bar
@@ -22,7 +21,7 @@ function barsCreate(req, res, next) {
 function barsShow(req, res, next) {
   Bar
     .findById(req.params.id)
-    .populate('createdBy')
+    .populate('createdBy comments.createdBy')
     .exec()
     .then((bar) => {
       if(!bar) return res.notFound();
@@ -57,24 +56,25 @@ function barsDelete(req, res, next) {
     .catch(next);
 }
 
-function createCommentRoute(req, res, next) {
+function barsCommentCreate(req, res, next) {
 
-  req.body.createdBy = req.user;
+  req.body.createdBy = req.currentUser;
 
   Bar
     .findById(req.params.id)
     .exec()
-    .then((bar) => {
+    .then(bar => {
       if(!bar) return res.notFound();
 
       bar.comments.push(req.body); // create an embedded record
       return bar.save();
     })
-    .then((bar) => res.redirect(`/bars/${bar.id}`))
+    .then(bar => Bar.populate(bar, { path: 'comments.createdBy' }))
+    .then(bar => res.status(201).json(bar))
     .catch(next);
 }
 
-function deleteCommentRoute(req, res, next) {
+function barsCommentDelete(req, res, next) {
   Bar
     .findById(req.params.id)
     .exec()
@@ -86,9 +86,12 @@ function deleteCommentRoute(req, res, next) {
 
       return bar.save();
     })
-    .then((bar) => res.redirect(`/bars/${bar.id}`))
+    .then(() => res.status(204).end())
     .catch(next);
 }
+
+
+
 
 module.exports = {
   index: barsIndex,
@@ -96,6 +99,6 @@ module.exports = {
   show: barsShow,
   update: barsUpdate,
   delete: barsDelete,
-  createComment: createCommentRoute,
-  deleteComment: deleteCommentRoute
+  createComment: barsCommentCreate,
+  deleteComment: barsCommentDelete
 };

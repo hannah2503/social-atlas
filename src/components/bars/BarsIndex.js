@@ -30,6 +30,10 @@ class BarsIndex extends React.Component {
     this.setState({query: e.target.value});
   }
 
+  saveBar = (e) => {
+    console.log(e.target.value);
+  }
+
 
   render(){
 
@@ -44,9 +48,7 @@ class BarsIndex extends React.Component {
 
     return(
       <div>
-        <Link to='/bars/new' className="grey-button">add a place</Link>
         <SearchBar handleSort={this.handleSort} handleSearch={this.handleSearch}/>
-
         {bars.map((bar, i) => {
           return(
             <div key={i}>
@@ -62,7 +64,7 @@ class BarsIndex extends React.Component {
 
                 <span className="stars">{bar.rating}</span>
 
-                <p>{bar.address}</p>
+                <p className="font-address">{bar.address}</p>
 
                 <p className="categories">
                   <span className="category">{bar.category[0]}</span>
@@ -72,6 +74,7 @@ class BarsIndex extends React.Component {
                   <span className="category">{bar.category[4]}</span>
                 </p>
 
+                <button value={bar.id} onClick={this.saveBar}>save</button>
                 <p>Author: <Link to={`/users/${bar.createdBy.id}`}>{bar.createdBy.firstName}</Link></p>
               </div>
             </div>

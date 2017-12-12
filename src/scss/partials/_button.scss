@@ -1,10 +1,21 @@
 .grey-button {
   background: grey;
   color: white;
+  font-family: 'Cutive Mono', monospace;
   padding: 5px;
 
   a :hover {
     background: white;
     color: grey;
   }
+}
+
+.grey-button-button {
+  background: grey;
+  border-radius: 0;
+  color: white;
+  font-family: 'Cutive Mono', monospace;
+  font-size: 1em;
+  height: 40px;
+  width: 80px;
 }

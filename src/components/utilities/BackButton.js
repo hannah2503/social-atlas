@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 const BackButton = ({ history }) => {
   return (
     <div>
-      <a onClick={history.goBack} className="grey-button">Back</a>
+      <button onClick={history.goBack} className="grey-button-button">back</button>
     </div>
   );
 };

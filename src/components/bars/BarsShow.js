@@ -23,10 +23,11 @@ class BarsShow extends React.Component {
       rating: '',
       comments: []
     },
-    errors: {}
+    errors: {},
+    comment: {
+      content: ''
+    }
   };
-
-
 
   deleteBar = () => {
     Axios
@@ -37,39 +38,52 @@ class BarsShow extends React.Component {
       .catch(err => console.log(err));
   }
 
-
-  componentWillMount(){
+  componentDidMount(){
     Axios
       .get(`/api/bars/${this.props.match.params.id}`)
       .then(res => this.setState({ bar: res.data }))
       .catch(err => console.log(err));
   }
 
-  handleChange = ({ target: { name, value } }) => {
-    const comment = Object.assign({}, this.state.bar.comments, {[name]: value});
-    this.setState({ comment });
+  commentChange = ({ target: { name, value } }) => {
+    this.setState({ comment: {[name]: value} });
   }
 
-  handleSubmit(e){
+  commentSubmit = (e) => {
     e.preventDefault();
-    console.log('clicked submit comment!', this); //this is undefined
 
     Axios
-      .post(`/api/bars/${this.props.bar.id}/comments`, this.state.bar.comments, {
+      .post(`/api/bars/${this.state.bar.id}/comments`, this.state.comment, {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
-      .then(() => this.props.history.push(`/bars/${this.props.match.params.id}`))
+      .then(res => {
+        const bar = Object.assign({}, this.state.bar, { comments: res.data.comments });
+        this.setState({ bar, comment: { content: ''} });
+      })
       .catch(err => this.setState({ errors: err.response.data.errors }));
 
   }
 
+  commentDelete = (e) => {
+    const commentId = e.target.value;
 
+    Axios
+      .delete(`/api/bars/${this.state.bar.id}/comments/${commentId}`, {
+        headers: {'Authorization': `Bearer ${Auth.getToken()}`}
+      })
+      .then(() => {
+        const comments = this.state.bar.comments.filter(comment => comment.id !== commentId);
+        const bar = Object.assign({}, this.state.bar, { comments });
+        this.setState({ bar });
+      })
+      .catch(err => this.setState({ errors: err.response.data.errors }));
+
+  }
 
   render(){
-    console.log(this.state.bar);
     const stars = [];
     for (var i = 0; i < this.state.bar.rating; i++) stars.push(1);
-    console.log(this.state.bar.location, 'location on render');
+
     return(
       <div className="wrapper">
         <div className="show">
@@ -79,7 +93,7 @@ class BarsShow extends React.Component {
 
           <p className="stars">{ stars.map((star, i) => <span key={i}>&#11088;</span>)}</p>
 
-          <p>{this.state.bar.address}</p>
+          <p className="font-address">{this.state.bar.address}</p>
           <p>{this.state.bar.description}</p>
 
 
@@ -92,8 +106,8 @@ class BarsShow extends React.Component {
           </div>
 
           <div className="buttons">
-            <Link to={`/bars/${this.state.bar.id}/edit`} className="grey-button">Edit</Link>
-            <a onClick={this.deleteBar} className="grey-button">Delete</a>
+            <Link to={`/bars/${this.state.bar.id}/edit`}><button className="grey-button-button">edit</button></Link>
+            <a onClick={this.deleteBar}><button className="grey-button-button">delete</button></a>
           </div>
 
           {this.state.bar.location.lat && <GoogleMap center={this.state.bar.location} />}
@@ -101,15 +115,20 @@ class BarsShow extends React.Component {
           <hr/>
           <h2>Comments:</h2>
 
-          {/* {this.state.bar.comments && this.state.bar.comments.map((comment, i) => {
-            <p key={i}>{comment[i].content}</p>;
-          })} */}
-          <CommentBox handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
+          { this.state.bar.comments && this.state.bar.comments.map(comment =>
+            <div key={comment.id}>
+              <p>{comment.content}</p>
+              <p>{comment.createdBy.firstName}</p>
+              <button value={comment.id} onClick={this.commentDelete}>delete</button>
+            </div>
+          )}
+          <CommentBox
+            comment={this.state.comment} commentChange={this.commentChange} commentSubmit={this.commentSubmit}/>
           <hr/>
           <BackButton />
+
         </div>
       </div>
-
     );
   }
 }

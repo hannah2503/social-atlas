@@ -12,7 +12,6 @@ const Navbar = ({ history }) => {
   };
 
   const user = Auth.getPayload();
-  console.log(user, 'this is the user');
 
   return(
     <div>

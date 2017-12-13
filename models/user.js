@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const userSchema = new mongoose.Schema({
   firstName: { type: String, required: 'Please provide first name' },
   lastName: { type: String, required: 'Please provide last name' },
-  email: { type: String, required: 'Please provide email', unique: 'You might already have an account with us.' },
+  email: { type: String, required: 'Please provide email' },
   picture: { type: String },
   favorites: [{ type: mongoose.Schema.ObjectId, ref: 'Bar' }],
   password: { type: String, required: 'A password is required' }
@@ -19,8 +19,10 @@ userSchema
   });
 
 userSchema.pre('validate', function checkPassword(next) {
-  if(!this._passwordConfirmation || this._passwordConfirmation !== this.password) {
-    this.invalidate('passwordConfirmation', 'Passwords do not match');
+  if (this.isNew) {
+    if(!this._passwordConfirmation || this._passwordConfirmation !== this.password) {
+      this.invalidate('passwordConfirmation', 'Passwords do not match');
+    }
   }
   next();
 });

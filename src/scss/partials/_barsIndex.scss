@@ -28,21 +28,21 @@
     }
   }
 
-  a {
-    color: grey;
-    text-decoration: none;
-
-
-    a:active {
-      background: grey;
-      color: white;
-    }
-
-    a:hover {
-      background: grey;
-      color: white;
-    }
-  }
+  // a {
+  //   color: grey;
+  //   // text-decoration: none;
+  //
+  //
+  //   a :active {
+  //     background: grey;
+  //     color: white;
+  //   }
+  //
+  //   a :hover {
+  //     background: grey;
+  //     color: white;
+  //   }
+  // }
 
   .stars {
     margin-left: 20px;
@@ -59,6 +59,7 @@
     width: 200px;
 
     select {
-      border-radius: 0;
+      border-radius: 0px;
     }
+
   }

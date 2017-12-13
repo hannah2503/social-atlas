@@ -83,7 +83,6 @@ class BarsShow extends React.Component {
   render(){
     const stars = [];
     for (var i = 0; i < this.state.bar.rating; i++) stars.push(1);
-
     return(
       <div className="wrapper">
         <div className="show">
@@ -105,6 +104,7 @@ class BarsShow extends React.Component {
             <span className="category">{this.state.bar.category[4]}</span>
           </div>
 
+          <p>Author: {this.state.bar.createdBy && this.state.bar.createdBy.firstName}</p>
           <div className="buttons">
             <Link to={`/bars/${this.state.bar.id}/edit`}><button className="grey-button-button">edit</button></Link>
             <a onClick={this.deleteBar}><button className="grey-button-button">delete</button></a>
@@ -125,7 +125,7 @@ class BarsShow extends React.Component {
           <CommentBox
             comment={this.state.comment} commentChange={this.commentChange} commentSubmit={this.commentSubmit}/>
           <hr/>
-          <BackButton />
+          <Link to="/bars" className="grey-button-button"><button className="grey-button-button">back</button></Link>
 
         </div>
       </div>

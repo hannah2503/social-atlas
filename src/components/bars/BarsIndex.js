@@ -4,20 +4,34 @@ import { Link } from 'react-router-dom';
 import _ from 'lodash';
 
 import SearchBar from '../utilities/SearchBar';
+import Auth from '../../lib/Auth';
 
 class BarsIndex extends React.Component {
 
   state = {
     bars: [],
     sortBy: 'name',
-    sortDirection: 'desc',
-    query: ''
+    sortDirection: 'asc',
+    query: '',
+    user: {},
+    colour: false
   };
 
   componentWillMount(){
+    const { userId } = Auth.getPayload();
     Axios
-      .get('api/bars')
-      .then(res => this.setState({ bars: res.data }))
+      .all([
+        Axios.get('api/bars'),
+        Axios.get(`api/users/${userId}`, {headers: { Authorization: `Bearer ${Auth.getToken()}`}})
+      ])
+      .then(Axios.spread((bars, user) => {
+        console.log('bars', bars, 'user',user);
+        const newBars = bars.data.map(bar => {
+          return Object.assign({}, bar, {isClicked: user.data.favorites.includes(bar.id)});
+        });
+
+        this.setState({user: user.data, bars: newBars});
+      }))
       .catch(err => console.log(err));
   }
 
@@ -31,19 +45,37 @@ class BarsIndex extends React.Component {
   }
 
   saveBar = (e) => {
-    console.log(e.target.value);
+    const barId = e.target.value;
+    // const favorites = this.state.user.favorites.concat(barId);
+    // const user = Object.assign({}, this.state.user, { favorites });
+
+    const bars = this.state.bars.map(bar => {
+      if (`${bar.id}` === `${barId}`) {
+        return Object.assign({}, bar, {isClicked: !bar.isClicked});
+      } else {
+        return bar;
+      }
+    });
+
+    Axios
+      .put(`api/users/${this.state.user.id}/favorite`, { user: this.state.user, favBar: barId }, {
+        headers: { Authorization: `Bearer ${Auth.getToken()}`}
+      })
+      .then(res => {
+        this.setState({ user: res.data, bars });
+
+      })
+      .catch(err => console.log(err));
   }
 
 
-  render(){
 
+  render(){
     const { sortBy, sortDirection, query } = this.state;
     const regex = new RegExp(query, 'i');
-
     const orderedBars = _.orderBy(this.state.bars, [sortBy], [sortDirection]);
-
     const bars = _.filter(orderedBars, (bar) => {
-      return regex.test(bar.name) || regex.test(bar.address);
+      return regex.test(bar.name) || regex.test(bar.address) || regex.test(bar.createdBy.firstName);
     });
 
     return(
@@ -64,8 +96,6 @@ class BarsIndex extends React.Component {
 
                 <span className="stars">{bar.rating}</span>
 
-                <p className="font-address">{bar.address}</p>
-
                 <p className="categories">
                   <span className="category">{bar.category[0]}</span>
                   <span className="category">{bar.category[1]}</span>
@@ -74,7 +104,9 @@ class BarsIndex extends React.Component {
                   <span className="category">{bar.category[4]}</span>
                 </p>
 
-                <button value={bar.id} onClick={this.saveBar}>save</button>
+                <button value={bar.id} onClick={this.saveBar} className={!bar.isClicked ?  'grey-button-button' : 'green' }>save</button>
+
+
                 <p>Author: <Link to={`/users/${bar.createdBy.id}`}>{bar.createdBy.firstName}</Link></p>
               </div>
             </div>

@@ -21,7 +21,32 @@ function usersShow(req, res, next) {
     .catch(next);
 }
 
+function favouriteIt(req, res, next) {
+  console.log(req.body);
+
+  User
+    .findById(req.params.id)
+    .exec()
+    .then(user => {
+      if (!user) return res.status(404).json({ message: 'user not found' });
+
+      const bar = user.favorites.find(favorite => `${favorite}` === `${req.body.favBar}`);
+
+      if (!bar){
+        user.favorites.push(req.body.favBar);
+      } else {
+        user.favorites.splice(user.favorites.indexOf(bar), 1);
+      }
+      user.save();
+
+      return res.status(200).json(user);
+    })
+    .catch(next);
+}
+
 function usersUpdate(req, res, next) {
+  console.log(req.body);
+
   User
     .findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -30,7 +55,7 @@ function usersUpdate(req, res, next) {
     .exec()
     .then(user => {
       if (!user) return res.status(404).json({ message: 'user not found' });
-      return res.status(200).json({ user });
+      return res.status(200).json(user);
     })
     .catch(next);
 }
@@ -53,5 +78,6 @@ module.exports = {
   index: usersIndex,
   show: usersShow,
   update: usersUpdate,
-  delete: usersDelete
+  delete: usersDelete,
+  favorite: favouriteIt
 };

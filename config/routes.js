@@ -25,6 +25,9 @@ router.route('/users/:id')
   .put(secureRoute, users.update)
   .delete(secureRoute, users.delete);
 
+router.route('/users/:id/favorite')
+  .put(secureRoute, users.favorite);
+
 router.route('/bars/:id/comments')
   .post(secureRoute, bars.createComment);
 

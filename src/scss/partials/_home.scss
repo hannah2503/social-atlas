@@ -2,3 +2,15 @@
   height: calc(100vh - 50px);
   width: 100%;
 }
+
+@media only all and (max-width: 780px){
+  .home {
+    height: 50%;
+  }
+}
+
+@media only all and (max-width: 500px){
+  .home {
+    height: 50%;
+  }
+}

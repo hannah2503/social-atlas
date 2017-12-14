@@ -29,3 +29,22 @@ Ensure that you add any relevant environment variables to heroku with `heroku co
 5. testing routes in insomnia
 6. testing backend with mocha/chai
 7. review schemas with a view to efficient functionality 
+
+
+The App
+Inspired by websites such as BarChick, The Nudge, TripAdvisor, I set out to create a website where users could post their favourite bars, restaurants, cafes etc and view others' favourites as well. The remit would be global and this way if you are planning a trip somewhere or a friend asks for recommendations you have a ready built resource to share with others. 
+
+Technologies Used:
+
+
+Challenges:
+
+
+Learning:
+
+
+
+Still to implement:
+
+
+

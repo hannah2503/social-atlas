@@ -33,7 +33,7 @@ const RegisterForm = ({ handleChange, handleSubmit, user, errors}) => {
           <label>Password Confirmation</label>
           <input  type="text" onChange={handleChange} value={user.passwordConfirmation} name="passwordConfirmation" placeholder="confirm your password"/>
         </div>
-        <button type="submit">register</button>
+        <button className="grey-button" type="submit">register</button>
       </form>
     </div>
   );

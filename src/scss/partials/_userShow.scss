@@ -1,3 +1,14 @@
-.userPicture {
-  max-width: 300px;
+.show {
+  margin: auto;
+  width: 50%;
+
+  .userPicture {
+    margin: 1%;
+    max-width: 35%;
+  }
+
+  .userInfo {
+    float: right;
+    width: 50%;
+  }
 }

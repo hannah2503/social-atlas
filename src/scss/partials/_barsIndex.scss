@@ -1,65 +1,62 @@
-.box {
-  border-bottom: 1px solid black;
-  float: left;
-  height: 500px;
-  margin-top: 10px;
-  margin-right: 10px;
-  overflow: auto;
-  max-width: 375px;
+.index-wrapper{
+  width: 100%;
 
-  .imgContainer {
-    height: 200px;
-    overflow: hidden;
+  .box {
+    border-bottom: 1px solid black;
+    float: left;
+    height: 500px;
+    margin-top: 10px;
+    margin-left: 1%;
+    margin-right: 1%;
+    overflow: auto;
+    width: 23%;
 
-    img {
-      max-width: 375px;
+    .imgContainer {
+      max-height: 200px;
+      overflow: hidden;
+
+      img {
+        max-width: 100%;
+      }
+
     }
-  }
 
-  .type {
-    text-transform: uppercase;
-  }
-
-  .categories {
-    color: grey;
-
-    .category {
-      display: block;
+    .type {
+      color: white;
+      background: grey;
+      text-transform: uppercase;
     }
+
+    .categories {
+      color: grey;
+
+      .category {
+        display: block;
+      }
+    }
+
+    .stars {
+      margin-left: 20px;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
+
+    a:active {
+      color: grey;
+    }
+    a:visited {
+      color: black;
+    }
+
+    a:hover {
+      border: 1px solid grey;
+    }
+
+
   }
 
-  // a {
-  //   color: grey;
-  //   // text-decoration: none;
-  //
-  //
-  //   a :active {
-  //     background: grey;
-  //     color: white;
-  //   }
-  //
-  //   a :hover {
-  //     background: grey;
-  //     color: white;
-  //   }
-  // }
 
-  .stars {
-    margin-left: 20px;
-  }
 }
-
-
-
-  .search-input{
-    font-family: 'Cutive Mono', monospace;
-    font-size: 1em;
-    height: 40px;
-    margin-right: 10px;
-    width: 200px;
-
-    select {
-      border-radius: 0px;
-    }
-
-  }

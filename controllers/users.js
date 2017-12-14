@@ -21,7 +21,7 @@ function usersShow(req, res, next) {
     .catch(next);
 }
 
-function favouriteIt(req, res, next) {
+function usersFavorite(req, res, next) {
   console.log(req.body);
 
   User
@@ -79,5 +79,5 @@ module.exports = {
   show: usersShow,
   update: usersUpdate,
   delete: usersDelete,
-  favorite: favouriteIt
+  favorite: usersFavorite
 };

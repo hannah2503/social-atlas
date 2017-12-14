@@ -1,0 +1,32 @@
+.menu {
+  margin-right: 1%;
+  height: 50px;
+
+  .menu-item {
+    display: inline-block;
+    float: right;
+
+    .search-input {
+      border-radius: 0px;
+
+      font-family: 'Cutive Mono', monospace;
+      font-size: 1em;
+      height: 35px;
+      margin-right: 10px;
+      width: 250px;
+    }
+    .search-input-select, option {
+      border-radius: 0px;
+      color: grey;
+      font-family: 'Cutive Mono', monospace;
+      font-size: 1em;
+      height: 40px;
+      margin-right: 10px;
+      width: 250px;
+      background: transparent;
+      line-height: 1;
+      -webkit-appearance: none;
+
+    }
+  }
+}

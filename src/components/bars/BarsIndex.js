@@ -5,6 +5,7 @@ import _ from 'lodash';
 
 import SearchBar from '../utilities/SearchBar';
 import Auth from '../../lib/Auth';
+import TagIcon from '../utilities/icons/TagIcon';
 
 class BarsIndex extends React.Component {
 
@@ -25,7 +26,6 @@ class BarsIndex extends React.Component {
         Axios.get(`api/users/${userId}`, {headers: { Authorization: `Bearer ${Auth.getToken()}`}})
       ])
       .then(Axios.spread((bars, user) => {
-        console.log('bars', bars, 'user',user);
         const newBars = bars.data.map(bar => {
           return Object.assign({}, bar, {isClicked: user.data.favorites.includes(bar.id)});
         });
@@ -46,9 +46,6 @@ class BarsIndex extends React.Component {
 
   saveBar = (e) => {
     const barId = e.target.value;
-    // const favorites = this.state.user.favorites.concat(barId);
-    // const user = Object.assign({}, this.state.user, { favorites });
-
     const bars = this.state.bars.map(bar => {
       if (`${bar.id}` === `${barId}`) {
         return Object.assign({}, bar, {isClicked: !bar.isClicked});
@@ -68,8 +65,6 @@ class BarsIndex extends React.Component {
       .catch(err => console.log(err));
   }
 
-
-
   render(){
     const { sortBy, sortDirection, query } = this.state;
     const regex = new RegExp(query, 'i');
@@ -79,34 +74,31 @@ class BarsIndex extends React.Component {
     });
 
     return(
-      <div>
+      <div className="index-wrapper">
         <SearchBar handleSort={this.handleSort} handleSearch={this.handleSearch}/>
-        {bars.map((bar, i) => {
+
+        {bars.map(bar => {
           return(
-            <div key={i}>
+            <div key={bar.id}>
               <div className="box">
 
                 <div className="imgContainer">
-                  <img src={bar.image}/>
+                  <Link to={`/bars/${bar.id}`}><img src={bar.image}/></Link>
                 </div>
 
                 <p className="type">{bar.type}</p>
 
                 <Link to={`/bars/${bar.id}`}>{bar.name}</Link>
-
                 <span className="stars">{bar.rating}</span>
 
+                <p>{bar.address}</p>
+
                 <p className="categories">
-                  <span className="category">{bar.category[0]}</span>
-                  <span className="category">{bar.category[1]}</span>
-                  <span className="category">{bar.category[2]}</span>
-                  <span className="category">{bar.category[3]}</span>
-                  <span className="category">{bar.category[4]}</span>
+                  { bar.category.map((category, i) => <span key={i} className="category">
+                    <TagIcon className={category.split(' ')[0].toLowerCase()}/>{category}
+                  </span>) }
                 </p>
-
-                <button value={bar.id} onClick={this.saveBar} className={!bar.isClicked ?  'grey-button-button' : 'green' }>save</button>
-
-
+                <i value={bar.id} onClick={this.saveBar} className={!bar.isClicked ? 'far fa-heart' : 'fas fa-heart'}></i>
                 <p>Author: <Link to={`/users/${bar.createdBy.id}`}>{bar.createdBy.firstName}</Link></p>
               </div>
             </div>
@@ -114,6 +106,7 @@ class BarsIndex extends React.Component {
         })}
 
       </div>
+
     );
   }
 

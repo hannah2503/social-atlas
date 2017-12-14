@@ -27,7 +27,7 @@ const LoginForm = ({handleChange, handleSubmit, credentials, errors}) => {
           />
           {errors.password && <small>{errors.password}</small>}
         </div>
-        <button type="submit">login</button>
+        <button className="grey-button" type="submit">login</button>
       </form>
     </div>
   );

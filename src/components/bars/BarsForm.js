@@ -40,15 +40,19 @@ const BarsForm = ({ handleChange, handleSubmit, handleLocationChange, handleMult
         </select>
         <br/>
 
-        <label>Category</label><br/>
+        <div className="category-wrapper">
+          <label>Category</label>
+          <br/>
 
-        { categories.map((category, i) =>
-          <span key={i}>
-            <input className="checkbox" type="checkbox" name="category" onChange={ handleMultipleInput } value={category} checked={bar.category.includes(category)}/>
-            <label>{category}</label>
-          </span>
-        )}
+          { categories.map((category, i) =>
+            <span key={i}>
+              <input className="checkbox" type="checkbox" name="category" onChange={ handleMultipleInput } value={category} checked={bar.category.includes(category)}/>
+              <label>{category}</label>
+            </span>
+          )}
+        </div>
         <br/>
+
 
         <label>Rating</label><br/>
         <input multiple type="Number" name="rating" onChange={ handleChange } value={bar.rating}/>

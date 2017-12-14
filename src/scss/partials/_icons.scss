@@ -1,0 +1,23 @@
+.tag-icon {
+  width: 10px;
+  margin-right: 3px;
+  &.fun {
+    ellipse { fill: #70D6FF; }
+  }
+
+  &.date {
+    ellipse { fill: #FF70A6;}
+  }
+
+  &.experimental {
+    ellipse { fill: #FF9770; }
+  }
+
+  &.family {
+    ellipse { fill: #FFD670; }
+  }
+
+  &.light {
+    ellipse { fill: #E9FF70; }
+  }
+}

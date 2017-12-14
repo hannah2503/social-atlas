@@ -4,12 +4,19 @@ import { Link } from 'react-router-dom';
 const SearchBar = ({ handleSort, handleSearch }) => {
   return(
     <div className="menu">
-      <Link to="/bars/new"><button className="search-input grey-button-button">add</button></Link>
-      <select className="search-input" onChange={handleSort}>
-        <option value="name|asc">Name (A - Z)</option>
-        <option value="name|desc">Name (Z - A)</option>
-      </select>
-      <input className="search-input" type="text" placeholder="Search" onChange={handleSearch}/>
+      <div className="menu-item">
+        <Link to="/bars/new"><button className="grey-button-button">add</button></Link>
+      </div>
+      <div className="menu-item">
+        <input className="search-input" type="text" placeholder="filter the list..." onChange={handleSearch}/>
+      </div>
+      <div className="menu-item">
+        <select className="search-input-select" onChange={handleSort}>
+          <option className="search-input" value="name|asc">sort by name (A - Z) </option>
+          <option className="search-input" value="name|desc">sort by name (Z - A) </option>
+        </select>
+      </div>
+
     </div>
   );
 };

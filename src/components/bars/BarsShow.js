@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
+
 import Auth from '../../lib/Auth';
-import BackButton from '../utilities/BackButton';
 import GoogleMap from '../utilities/GoogleMap';
 import CommentBox from '../utilities/CommentBox';
+import TagIcon from '../utilities/icons/TagIcon';
 
 class BarsShow extends React.Component {
   state = {
@@ -92,17 +93,14 @@ class BarsShow extends React.Component {
 
           <p className="stars">{ stars.map((star, i) => <span key={i}>&#11088;</span>)}</p>
 
-          <p className="font-address">{this.state.bar.address}</p>
           <p>{this.state.bar.description}</p>
 
 
-          <div className="categories">
-            <span className="category">{this.state.bar.category[0]}</span>
-            <span className="category">{this.state.bar.category[1]}</span>
-            <span className="category">{this.state.bar.category[2]}</span>
-            <span className="category">{this.state.bar.category[3]}</span>
-            <span className="category">{this.state.bar.category[4]}</span>
-          </div>
+          <p className="categories">
+            { this.state.bar.category.map((category, i) => <span key={i} className="category">
+              <TagIcon className={category.split(' ')[0].toLowerCase()}/>{category}
+            </span>) }
+          </p>
 
           <p>Author: {this.state.bar.createdBy && this.state.bar.createdBy.firstName}</p>
           <div className="buttons">
@@ -111,6 +109,7 @@ class BarsShow extends React.Component {
           </div>
 
           {this.state.bar.location.lat && <GoogleMap center={this.state.bar.location} />}
+          <p>{this.state.bar.address}</p>
 
           <hr/>
           <h2>Comments:</h2>

@@ -59,6 +59,13 @@ class BarsEdit extends React.Component {
     this.setState({ bar });
   }
 
+  ratingChanged = (newRating) => {
+    console.log(newRating);
+    const bar = Object.assign({}, this.state.bar, {rating: newRating});
+    this.setState({ bar });
+  }
+
+
   handleSubmit = (e) => {
     e.preventDefault();
     console.log('submit was hit and this is what I sent:', this.state.bar);
@@ -81,6 +88,7 @@ class BarsEdit extends React.Component {
         categories={this.state.categories}
         bar={this.state.bar}
         errors={this.state.errors}
+        ratingChanged={this.ratingChanged}
       />
     );
   }

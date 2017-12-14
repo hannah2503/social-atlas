@@ -21,10 +21,10 @@ const barSchema = new mongoose.Schema({
   description: { type: String, required: true },
   type: { type: String, required: true },
   category: [{ type: String, required: true }],
-  rating: { type: Number, required: true },
+  rating: { type: String, required: true },
   comments: [commentSchema],
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 });
 
 
-module.exports = mongoose.model('bar', barSchema);
+module.exports = mongoose.model('Bar', barSchema);

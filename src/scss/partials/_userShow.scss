@@ -2,7 +2,13 @@
   margin: auto;
   width: 50%;
 
+  h3 {
+    margin-left: 1%;
+  }
+
+
   .userPicture {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     margin: 1%;
     max-width: 35%;
   }
@@ -10,5 +16,28 @@
   .userInfo {
     float: right;
     width: 50%;
+
+
+  }
+
+  .favorites-img-wrapper{
+    width: 100%;
+    min-height: 300px;
+
+  .favorites-img {
+    height: 100px;
+    float: left;
+    width: 100px;
+    overflow-x: hidden;
+    padding: 1%;
+
+    &:hover{
+      opacity: 0.5;
+    }
+  }
+    }
+  .userBack {
+    display: inline-block;
+    margin-left: 1%;
   }
 }

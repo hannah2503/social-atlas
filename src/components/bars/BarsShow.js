@@ -5,6 +5,7 @@ import Axios from 'axios';
 import Auth from '../../lib/Auth';
 import GoogleMap from '../utilities/GoogleMap';
 import CommentBox from '../utilities/CommentBox';
+import BackButton from '../utilities/BackButton';
 import TagIcon from '../utilities/icons/TagIcon';
 
 class BarsShow extends React.Component {
@@ -124,7 +125,7 @@ class BarsShow extends React.Component {
           <CommentBox
             comment={this.state.comment} commentChange={this.commentChange} commentSubmit={this.commentSubmit}/>
           <hr/>
-          <Link to="/bars" className="grey-button-button"><button className="grey-button-button">back</button></Link>
+          <BackButton />
 
         </div>
       </div>

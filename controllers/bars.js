@@ -1,4 +1,4 @@
-const Bar = require('../models/bar');
+const Bar = require('../models/Bar');
 
 function barsIndex(req, res, next) {
   Bar

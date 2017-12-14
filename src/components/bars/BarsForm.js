@@ -1,8 +1,9 @@
 import React from 'react';
 import AutoComplete from '../utilities/AutoComplete';
 import { Link } from 'react-router-dom';
+import ReactStars from 'react-stars';
 
-const BarsForm = ({ handleChange, handleSubmit, handleLocationChange, handleMultipleInput, bar, categories }) => {
+const BarsForm = ({ handleChange, handleSubmit, handleLocationChange, handleMultipleInput, bar, categories, ratingChanged }) => {
   return(
     <div className="wrapper">
       <form onSubmit={ handleSubmit }>
@@ -55,7 +56,13 @@ const BarsForm = ({ handleChange, handleSubmit, handleLocationChange, handleMult
 
 
         <label>Rating</label><br/>
-        <input multiple type="Number" name="rating" onChange={ handleChange } value={bar.rating}/>
+        <ReactStars
+          half={false}
+          count={5}
+          onChange={ratingChanged}
+          value={bar.rating}
+          size={24}
+          color2={'#ffd700'} />
         <br/>
 
         <button type="submit" className="grey-button-button">save</button>

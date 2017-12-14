@@ -38,7 +38,7 @@ User
         website: 'https://tabelog.com/en/hyogo/A2801/A280101/28000910/',
         description: 'Sushi bar with friendly service and excellent Sake menu',
         type: 'Restaurant',
-        rating: 4,
+        rating: '4',
         createdBy: users[0],
         comments: [],
         category: [
@@ -58,7 +58,7 @@ User
         website: 'https://www.theredcat.com/',
         description: 'Down to earth but high-end food - great for a birthday or catching up with friends.',
         type: 'Brasserie',
-        rating: 5,
+        rating: '5',
         createdBy: users[0],
         comments: [],
         category: [
@@ -78,7 +78,7 @@ User
         website: 'https://www.monkeynuts.biz/',
         description: 'Burgers and Cocktails in Crouch End in North London',
         type: 'Restaurant',
-        rating: 5,
+        rating: '5',
         createdBy: users[0],
         comments: [
           {
@@ -102,7 +102,7 @@ User
         website: 'https://baresteban.com',
         description: 'A delightful taste of spain hidden in the heart of Crouch End in North London',
         type: 'Restaurant',
-        rating: 5,
+        rating: '5',
         createdBy: users[0],
         comments: [
           {
@@ -126,7 +126,7 @@ User
         website: 'https://www.heirloomn8.co.uk',
         description: 'A delightful taste of spain hidden in the heart of Crouch End in North London',
         type: 'Restaurant',
-        rating: 5,
+        rating: '5',
         createdBy: users[0],
         comments: [
           {
@@ -150,7 +150,7 @@ User
         website: 'https://www.rokarestaurant.com/',
         description: 'Great place for a date or a birthday treat!',
         type: 'Restaurant',
-        rating: 4,
+        rating: '4',
         createdBy: users[0],
         comments: [],
         category: [
@@ -170,7 +170,7 @@ User
         website: 'https://bluestonelane.com/cafes/west-village-carmine-st/',
         description: 'Super tasty coffee and brunch - plus card only payments in an attempt to reduce carbon footage!',
         type: 'Cafe',
-        rating: 4,
+        rating: '4',
         createdBy: users[0],
         comments: [],
         category: [
@@ -189,7 +189,7 @@ User
         website: 'https://www.theyogabarn.com/',
         description: 'It may be a yoga bar, but their vegan cafe is delicious with some of the best smoothies ever!',
         type: 'Cafe',
-        rating: 4,
+        rating: '4',
         createdBy: users[0],
         comments: [],
         category: [
@@ -208,7 +208,7 @@ User
         website: 'https://www.folkubud.com/',
         description: 'Lovely coffee and relaxed hipster vibes',
         type: 'Cafe',
-        rating: 4,
+        rating: '4',
         createdBy: users[0],
         comments: [],
         category: [
@@ -227,7 +227,7 @@ User
         website: 'https://hakkasan.com/',
         description: 'Contemporary chinese dining, with great cocktails',
         type: 'Restaurant',
-        rating: 5,
+        rating: '5',
         createdBy: users[0],
         comments: [],
         category: [
@@ -247,7 +247,7 @@ User
         website: 'https://www.roklondon.com/',
         description: 'Delicious Scandi-inspired cooking with great wine list and funky beers!',
         type: 'Restaurant',
-        rating: 5,
+        rating: '5',
         createdBy: users[0],
         comments: [],
         category: [
@@ -267,7 +267,7 @@ User
         website: 'https://apeandbird.com/',
         description: 'Venetian tapas',
         type: 'Restaurant',
-        rating: 5,
+        rating: '5',
         createdBy: users[0],
         comments: [],
         category: [
@@ -288,7 +288,7 @@ User
         website: 'https://www.yumbun.com/',
         description: 'Yummy!',
         type: 'Pop-Up',
-        rating: 5,
+        rating: '5',
         createdBy: users[0],
         comments: [],
         category: [
@@ -307,7 +307,7 @@ User
         website: 'https://www.trade-made.co.uk/',
         description: 'Eggsellent breakfasts and coffee!',
         type: 'Cafe',
-        rating: 5,
+        rating: '5',
         createdBy: users[0],
         comments: [],
         category: [
@@ -326,7 +326,7 @@ User
         website: 'https://www.facebook.com/sintoniaportopozzomarina',
         description: 'Gorgeous bar and restaurant set by a small harbour. ',
         type: 'Bar',
-        rating: 5,
+        rating: '5',
         createdBy: users[0],
         comments: [],
         category: [
@@ -345,7 +345,7 @@ User
         website: 'https://www.lemoulindelagalette.fr/',
         description: 'Classic french dishes beautifully presented',
         type: 'Restaurant',
-        rating: 5,
+        rating: '5',
         createdBy: users[0],
         comments: [],
         category: [

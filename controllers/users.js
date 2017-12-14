@@ -13,8 +13,10 @@ function usersShow(req, res, next) {
 
   User
     .findById(req.params.id)
+    .populate('favorites')
     .exec()
     .then(user => {
+      console.log(user);
       if (!user) return res.status(404).json({ message: 'user not found' });
       return res.status(200).json(user);
     })
@@ -70,9 +72,6 @@ function usersDelete(req, res, next) {
     .catch(next);
 }
 
-// function saveBar(req, res, next) {
-//
-// }
 
 module.exports = {
   index: usersIndex,

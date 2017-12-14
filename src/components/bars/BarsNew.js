@@ -46,6 +46,13 @@ class BarsNew extends React.Component {
     this.setState({ bar });
   }
 
+  ratingChanged = (newRating) => {
+    console.log(newRating);
+    const bar = Object.assign({}, this.state.bar, {rating: newRating});
+    this.setState({ bar });
+  }
+
+
   handleSubmit = (e) => {
     e.preventDefault();
 
@@ -67,6 +74,7 @@ class BarsNew extends React.Component {
         errors={this.state.errors}
         handleMultipleInput={this.handleMultipleInput}
         categories={this.state.categories}
+        ratingChanged={this.ratingChanged}
       />
     );
   }

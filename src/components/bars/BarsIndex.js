@@ -93,7 +93,7 @@ class BarsIndex extends React.Component {
                   <ReactStars
                     edit={false}
                     count={5}
-                    value ={bar.rating}
+                    value={bar.rating}
                     size={24}
                     color2={'#ffd700'} />
                 </span>

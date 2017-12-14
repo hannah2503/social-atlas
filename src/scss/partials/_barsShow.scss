@@ -33,3 +33,12 @@
     text-decoration: none;
   }
 }
+
+@media only all and (max-width: 780px){
+
+  form {
+    text-transform: lowercase;
+    margin: auto;
+    width: 100% !important;
+}
+}

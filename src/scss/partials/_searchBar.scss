@@ -30,3 +30,39 @@
     }
   }
 }
+
+@media only all and (max-width: 500px) {
+  .menu {
+
+    margin-right: 1%;
+    height: auto;
+
+    .menu-item {
+      float: right;
+      width: 100%;
+
+      .search-input {
+        border-radius: 0px;
+        font-family: 'Cutive Mono', monospace;
+        font-size: 1em;
+        height: 35px;
+        margin-right: 10px;
+        width: 100%;
+      }
+      .search-input-select, option {
+        border-radius: 0px;
+        color: grey;
+        font-family: 'Cutive Mono', monospace;
+        font-size: 1em;
+        height: 40px;
+        margin-right: 10px;
+        width: 250px;
+        background: transparent;
+        line-height: 1;
+        -webkit-appearance: none;
+
+      }
+    }
+  }
+
+}

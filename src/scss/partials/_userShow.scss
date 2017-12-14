@@ -6,7 +6,6 @@
     margin-left: 1%;
   }
 
-
   .userPicture {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     margin: 1%;
@@ -16,8 +15,6 @@
   .userInfo {
     float: right;
     width: 50%;
-
-
   }
 
   .favorites-img-wrapper{
@@ -40,4 +37,64 @@
     display: inline-block;
     margin-left: 1%;
   }
+}
+
+@media only all and (max-width: 780px) {
+  .show {
+    height: 100vh;
+    width: 100% !important;
+
+  .favorites-img-wrapper{
+    width: 100%;
+    min-height: 500px;
+  }
+}
+}
+
+@media only all and (max-width: 500px) {
+  .show {
+    width: 100% !important;
+
+    h3 {
+      margin-left: 1%;
+    }
+
+    .userPicture {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+      width: 100%;
+    }
+
+    .userInfo {
+      display: block;
+      width: 100%;
+    }
+
+    .favorites-img-wrapper{
+      width: 100%;
+      min-height: 400px;
+
+    .favorites-img {
+      height: 100px;
+      float: left;
+      overflow-x: hidden;
+      padding: 1%;
+
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+      }
+    .userBack {
+      display: block;
+      margin: auto;
+    }
+
+    form {
+      width: 100%;
+      input {
+        width: 100%;
+      }
+    }
+  }
+
 }

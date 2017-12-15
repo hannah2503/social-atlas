@@ -34,8 +34,12 @@
   }
     }
   .userBack {
-    display: inline-block;
+    display: block;
     margin-left: 1%;
+    width: 100%;
+      button {
+        width: 100%;
+      }
   }
 }
 
@@ -74,7 +78,7 @@
       min-height: 400px;
 
     .favorites-img {
-      height: 100px;
+      max-height: 100px;
       float: left;
       overflow-x: hidden;
       padding: 1%;
@@ -86,7 +90,11 @@
       }
     .userBack {
       display: block;
-      margin: auto;
+      width: 100%;
+        button {
+          width:100% !important;
+        }
+
     }
 
     form {

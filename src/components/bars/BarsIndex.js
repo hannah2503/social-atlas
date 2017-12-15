@@ -29,8 +29,8 @@ class BarsIndex extends React.Component {
         const newBars = bars.data.map(bar => {
           return Object.assign({}, bar, {isClicked: user.data.favorites.includes(bar.id)});
         });
-
         this.setState({user: user.data, bars: newBars});
+
       }))
       .catch(err => console.log(err));
   }
@@ -59,7 +59,7 @@ class BarsIndex extends React.Component {
         headers: { Authorization: `Bearer ${Auth.getToken()}`}
       })
       .then(res => {
-        this.setState({ user: res.data, bars }, () => console.log(this.state.bars));
+        this.setState({ user: res.data, bars }, () => console.log(this.state.bars, 'setState', this.state.user, 'user'));
       })
       .catch(err => console.log(err));
   }
@@ -107,7 +107,7 @@ class BarsIndex extends React.Component {
                 </p>
 
                 <div className="fav-btn" onClick={() => this.saveBar(bar.id)}>
-                  {!bar.isClicked ? <div className="favorited-bar"></div> : <div className="unfavorited-bar"></div>}
+                  {bar.isClicked ? <div className="favorited-bar"></div> : <div className="unfavorited-bar"></div>}
                 </div>
                 <p>Author: <Link to={`/users/${bar.createdBy.id}`}>{bar.createdBy.firstName}</Link></p>
               </div>

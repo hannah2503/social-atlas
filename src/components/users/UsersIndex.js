@@ -25,7 +25,6 @@ class UsersIndex extends React.Component {
             <img src={user.picture}/>
             <h1>{user.firstName}</h1>
             <p>{user.email}</p>
-            <img src={user.picture}/>
           </div>;
         })}
       </div>

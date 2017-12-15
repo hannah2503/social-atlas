@@ -4,8 +4,10 @@ function usersIndex(req, res, next) {
   User
     .find()
     .exec()
-    .then((users) =>
-      res.status(200).json(users))
+    .then((users) =>{
+      console.log( users);
+      res.status(200).json(users);
+    })
     .catch(next);
 }
 
@@ -36,10 +38,12 @@ function usersFavorite(req, res, next) {
 
       if (!bar){
         user.favorites.push(req.body.favBar);
+        console.log(req.body.favBar);
       } else {
         user.favorites.splice(user.favorites.indexOf(bar), 1);
       }
       user.save();
+      console.log(user);
 
       return res.status(200).json(user);
     })

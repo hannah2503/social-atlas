@@ -1,0 +1,25 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css');
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+    color: #8F3039;
+  }
+
+  50% {
+    transform: scale3d(1.00, 1.15, 1.00);
+    color: #710000;
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+    color: #8F3039;
+  }
+}
+
+.pulse {
+  animation-name: pulse;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}

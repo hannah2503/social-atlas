@@ -26,8 +26,9 @@ class BarsIndex extends React.Component {
         Axios.get(`api/users/${userId}`, {headers: { Authorization: `Bearer ${Auth.getToken()}`}})
       ])
       .then(Axios.spread((bars, user) => {
+        const favIds = user.data.favorites.map(fav => fav.id);
         const newBars = bars.data.map(bar => {
-          return Object.assign({}, bar, {isClicked: user.data.favorites.includes(bar.id)});
+          return Object.assign({}, bar, { isClicked: favIds.includes(bar.id) });
         });
         this.setState({user: user.data, bars: newBars});
 
@@ -59,6 +60,8 @@ class BarsIndex extends React.Component {
         headers: { Authorization: `Bearer ${Auth.getToken()}`}
       })
       .then(res => {
+        console.log('res.data', res.data);
+        console.log('barssss', bars);
         this.setState({ user: res.data, bars }, () => console.log(this.state.bars, 'setState', this.state.user, 'user'));
       })
       .catch(err => console.log(err));
@@ -107,7 +110,7 @@ class BarsIndex extends React.Component {
                 </p>
 
                 <div className="fav-btn" onClick={() => this.saveBar(bar.id)}>
-                  {bar.isClicked ? <div className="favorited-bar"></div> : <div className="unfavorited-bar"></div>}
+                  {bar.isClicked ? <div className="favorited-bar animated pulse heart"></div> : <div className="unfavorited-bar heart"></div>}
                 </div>
                 <p>Author: <Link to={`/users/${bar.createdBy.id}`}>{bar.createdBy.firstName}</Link></p>
               </div>

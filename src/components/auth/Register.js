@@ -1,6 +1,8 @@
 import React from 'react';
-import RegisterForm from './RegisterForm';
 import Axios from 'axios';
+import Auth from '../../lib/Auth';
+
+import RegisterForm from './RegisterForm';
 
 class Register extends React.Component {
 
@@ -26,8 +28,13 @@ handleSubmit = (e) => {
 
   Axios
     .post('/api/register', this.state.user)
-    .then(() => {
-      this.props.history.push('/login');
+    // .then(() => {
+    //   this.props.history.push('/bars');
+    // })
+    .then((res) => {
+      Auth.setToken(res.data.token);
+      console.log('registered!');
+      this.props.history.push('/bars');
     })
     .catch(err => this.setState({ errors: err.response.data.errors }));
 }

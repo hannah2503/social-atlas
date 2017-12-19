@@ -30,6 +30,7 @@ class Login extends React.Component {
       })
       .catch((err) => {
         this.setState({ errors: err.response.data.errors });
+        console.log(this.state.errors);
         Auth.logout();
         this.props.history.push('/login');
       });

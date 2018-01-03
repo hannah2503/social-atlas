@@ -85,6 +85,7 @@ class BarsShow extends React.Component {
   render(){
     const stars = [];
     for (var i = 0; i < this.state.bar.rating; i++) stars.push(1);
+
     return(
       <div className="wrapper">
         <div className="show">

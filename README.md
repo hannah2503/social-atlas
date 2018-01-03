@@ -32,8 +32,6 @@ Using React has given me more experience with vanilla JavaScript and enabled me 
 In order to create some seemingly simple visual effects I was amazed to discover how much programming I needed to implement. In particular I am thinking of the favourites feature I added to my website. When a user "saves a favourite" the heart icon changes from a static shape to a red beating heart. In addition to the  "on click" function I needed to add code to the back end controllers in order to save the favourite to the users array, and allow both the database and DOM to be updated in real time.
 
 
-<h2>Still to implement:</h2>
-I plan to improve the responsiveness of the website. I also plan to set up an average ratings feature and allow users to add ratings to other people's posts. Implementing an OAuth login will also be on my to-do list for this project.
 
 ![](social-atlas1.png)
 ![](social-atlas2.png)
@@ -42,3 +40,8 @@ I plan to improve the responsiveness of the website. I also plan to set up an av
 ![](social-atlas4.png)
 ![](social-atlas5.png)
 ![](social-atlas6.png)
+
+
+
+<h2>Still to implement:</h2>
+I plan to improve the responsiveness of the website. I also plan to set up an average ratings feature and allow users to add ratings to other people's posts. Implementing an OAuth login will also be on my to-do list for this project.

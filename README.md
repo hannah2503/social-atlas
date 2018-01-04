@@ -1,7 +1,7 @@
 # WDI Project 4: MERN Stack
 
-<h1>Final Project</h1>
-
+<h2>The App</h2>
+Inspired by websites such as BarChick, The Nudge, TripAdvisor, I set out to create a website where users could post their favourite bars, restaurants, cafes etc and view others' favourites as well. The remit would be global and this way if you are planning a trip somewhere or a friend asks for recommendations you have a ready built resource to share with others.
 <h2>Planning</h2>
 
 ![](planning.JPG)
@@ -13,10 +13,6 @@
 5. testing routes in insomnia
 6. testing backend with mocha/chai
 7. review schemas with a view to efficient functionality
-
-
-<h2>The App</h2>
-Inspired by websites such as BarChick, The Nudge, TripAdvisor, I set out to create a website where users could post their favourite bars, restaurants, cafes etc and view others' favourites as well. The remit would be global and this way if you are planning a trip somewhere or a friend asks for recommendations you have a ready built resource to share with others.
 
 <h2>Technologies Used:</h2>
 <li>Node.js <li>Express<li>React<li>SCSS<li>Yarn & Webpack<li>Mocha & Chai<li>MongoDB & mongoose<li>Google Maps & Places API

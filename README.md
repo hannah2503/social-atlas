@@ -18,6 +18,20 @@ Inspired by websites such as BarChick, The Nudge, TripAdvisor, I set out to crea
 <li>Node.js <li>Express<li>React<li>SCSS<li>Yarn & Webpack<li>Mocha & Chai<li>MongoDB & mongoose<li>Google Maps & Places API
 
 
+<h2>How I Made My App </h2>
+When it came to the final project, we were given a pretty open brief. One of my main objectives was to build on all the skills and technologies we had looked at during the course.
+
+M-V-C
+Components
+
+Why did I use React
+Why did I use SCSS
+Why did I use MongoDB
+Why did I use Express
+
+For the back-end, setting up a server and database using Express and
+
+
 <h2>Challenges:</h2>
 Learning React was both a joy and a challenge. Particularly understanding concepts such as state and props. Applying this to data from third party APIs, in this case, Google, was also tricky. Breaking down the relationships between components in order to pass props in the best way took some time to figure out. Although this was difficult, the documentation was very helpful and there is a lot of advice and help online which helps to break down some of these concepts. It was also incredibly helpful to be able to talk through problems with tutors and classmates. I feel as if I have a better understanding of JavaScript thanks to my experience with React so far.
 

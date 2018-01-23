@@ -1,6 +1,5 @@
 const router = require('express').Router();
 
-
 const bars  = require('../controllers/bars');
 const users  = require('../controllers/users');
 

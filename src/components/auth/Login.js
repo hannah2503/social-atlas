@@ -5,18 +5,22 @@ import Auth from '../../lib/Auth';
 import LoginForm from './LoginForm';
 
 class Login extends React.Component {
+ 
+  constructor(props) {
+   state = {
+       credentials: {
+         email: '',
+         password: ''
+       },
+       errors: {}
+     };
+    }
 
-  state = {
-    credentials: {
-      email: '',
-      password: ''
-    },
-    errors: {}
-  };
-
-  handleChange = ({ target: { name, value } }) => {
-    const credentials = Object.assign({}, this.state.credentials, { [name]: value });
-    this.setState({ credentials });
+  handleChange(event) {
+    this.setState({
+      value: event.target.value
+    });
+    console.log(event.target.value)
   }
 
   handleSubmit = (e) => {
@@ -30,7 +34,7 @@ class Login extends React.Component {
       })
       .catch((err) => {
         this.setState({ errors: err.response.data.errors });
-        console.log(this.state.errors);
+        console.log(this.state.errors, err.response.data.errors);
         Auth.logout();
         this.props.history.push('/login');
       });

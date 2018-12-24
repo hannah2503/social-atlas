@@ -25,6 +25,30 @@ function usersShow(req, res, next) {
     .catch(next);
 }
 
+// function rateBar(req, res, next) {
+//   User
+//     .findById(req.params.id)
+//     .exec()
+//     .then( user => {
+//       if (!user) return res.status(404).json({message: 'user not found'});
+//
+//       // kill off existing rating (if it's in there)
+//       user.barRatings = user.barRatings.filter(barRating => `${barRating.barId}` !== `${req.body.barId}`);
+//
+//       // always add a new one
+//       const newRating = {
+//         barId: req.body.barId,
+//         stars: req.body.stars
+//       };
+//       user.barRatings.push(newRating);
+//
+//       user.save();
+//
+//       return res.status(200).json(user);
+//     })
+//     .catch(next);
+// }
+
 function usersFavorite(req, res, next) {
   console.log(req.body);
 

@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: 'Please provide email' },
   picture: { type: String },
   favorites: [{ type: mongoose.Schema.ObjectId, ref: 'Bar' }],
+  // barRatings: [{ type: mongoose.Schema.ObjectId, ref: 'Bar'}],
   password: { type: String, required: 'A password is required' }
 });
 

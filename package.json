@@ -23,7 +23,7 @@
     "loadash": "^1.0.0",
     "mongoose": "^4.11.12",
     "mongoose-unique-validator": "^1.0.6",
-    "morgan": "^1.8.2",
+    "morgan": "^1.9.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
@@ -31,7 +31,7 @@
     "request-promise": "^4.2.2"
   },
   "devDependencies": {
-    "babel-core": "^6.25.0",
+    "babel-core": "^6.26.3",
     "babel-loader": "^7.1.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
@@ -41,7 +41,7 @@
     "chai": "^4.1.2",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
-    "enzyme": "^3.1.0",
+    "enzyme": "^3.8.0",
     "enzyme-adapter-react-15": "^1.0.2",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.29.0",
@@ -53,9 +53,9 @@
     "sinon": "^4.0.1",
     "style-loader": "^0.18.2",
     "supertest": "^3.0.0",
-    "url-loader": "^0.5.9",
+    "url-loader": "^1.1.2",
     "webpack": "^3.3.0",
-    "webpack-dev-server": "^2.5.1"
+    "webpack-dev-server": "^3.1.14"
   },
   "repository": "git@github.com:crossy87/WDI_30_PROJECT_4.git",
   "author": "crossy87 <hannabmcross@gmail.com>"

@@ -6,21 +6,17 @@ import LoginForm from './LoginForm';
 
 class Login extends React.Component {
  
-
    state = {
-       credentials: {
-         email: '',
-         password: ''
-       },
-       errors: {}
-     };
+    credentials: {
+      email: '',
+      password: ''
+    },
+    errors: {}
+  };
 
-
-  handleChange(event) {
-    this.setState({
-      value: event.target.value
-    });
-    console.log(event.target.value)
+  handleChange = ({ target: { name, value } }) => {
+    const credentials = Object.assign({}, this.state.credentials, { [name]: value });
+    this.setState({ credentials });
   }
 
   handleSubmit = (e) => {

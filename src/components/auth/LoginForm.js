@@ -1,7 +1,7 @@
 import React from 'react';
 
 const LoginForm = ({handleChange, handleSubmit, credentials, errors}) => {
-  console.log(credentials)
+  console.log(errors)
   return(
     <div className="wrapper">
       <form onSubmit={handleSubmit} noValidate>

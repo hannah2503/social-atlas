@@ -44,7 +44,8 @@ class Login extends React.Component {
         <LoginForm
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
-          credentials={this.state.credentials}
+          email={this.state.credentials.email}
+          password={this.state.credentials.password}
           errors={this.state.errors}
         />
       </div>

@@ -17,21 +17,21 @@ const RegisterForm = ({ handleChange, handleSubmit, user, errors}) => {
         </div>
         <div>
           <label>Email</label>
-          <input  type="text" onChange={handleChange} value={user.email} name="email" placeholder="Email"/>
+          <input type="text" onChange={handleChange} value={user.email} name="email" placeholder="Enter your email address"/>
           {errors.email && <small>{errors.email}</small>}
         </div>
         <div>
           <label>Picture</label>
-          <input  type="text" onChange={handleChange} value={user.picture} name="picture" placeholder="add an image url here"/>
+          <input  type="text" onChange={handleChange} value={user.picture} name="picture" placeholder="Add an image url here"/>
         </div>
         <div>
           <label>Password</label>
-          <input  type="text" onChange={handleChange} value={user.password} name="password" placeholder="password"/>
+          <input  type="password" onChange={handleChange} value={user.password} name="password" placeholder="Enter a password"/>
           {errors.password && <small>{errors.password}</small>}
         </div>
         <div>
           <label>Password Confirmation</label>
-          <input  type="text" onChange={handleChange} value={user.passwordConfirmation} name="passwordConfirmation" placeholder="confirm your password"/>
+          <input  type="password" onChange={handleChange} value={user.passwordConfirmation} name="passwordConfirmation" placeholder="Confirm your password"/>
         </div>
         <button className="grey-button" type="submit">register</button>
       </form>

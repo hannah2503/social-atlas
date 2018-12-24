@@ -5,8 +5,7 @@ import Auth from '../../lib/Auth';
 import LoginForm from './LoginForm';
 
 class Login extends React.Component {
- 
-   state = {
+  state = {
     credentials: {
       email: '',
       password: ''
@@ -21,21 +20,19 @@ class Login extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    console.log(this.state.credentials, 'STATE')
     Axios
       .post('/api/login', this.state.credentials)
       .then((res) => {
         Auth.setToken(res.data.token);
-        console.log('logged in!');
         this.props.history.push('/bars');
       })
       .catch((err) => {
         this.setState({ errors: err.response.data.errors });
-        console.log(this.state.errors, err.response.data.errors);
         Auth.logout();
         this.props.history.push('/login');
       });
   }
-
 
 
   render() {
@@ -44,8 +41,7 @@ class Login extends React.Component {
         <LoginForm
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
-          email={this.state.credentials.email}
-          password={this.state.credentials.password}
+          credentials={this.state.credentials}
           errors={this.state.errors}
         />
       </div>

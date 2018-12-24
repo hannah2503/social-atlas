@@ -6,7 +6,7 @@ import LoginForm from './LoginForm';
 
 class Login extends React.Component {
  
-  constructor(props) {
+
    state = {
        credentials: {
          email: '',
@@ -14,7 +14,7 @@ class Login extends React.Component {
        },
        errors: {}
      };
-    }
+
 
   handleChange(event) {
     this.setState({

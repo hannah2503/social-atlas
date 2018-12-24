@@ -60,6 +60,6 @@
     "webpack": "^3.3.0",
     "webpack-dev-server": "^3.1.14"
   },
-  "repository": "git@github.com:crossy87/WDI_30_PROJECT_4.git",
+  "repository": "git@github.com:crossy87/social-atlas.git",
   "author": "crossy87 <hannabmcross@gmail.com>"
 }

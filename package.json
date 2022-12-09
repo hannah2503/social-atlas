@@ -21,7 +21,7 @@
     "axios": "^0.17.1",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.1",
-    "express": "^4.15.4",
+    "express": "^4.17.3",
     "jsonwebtoken": "^8.1.0",
     "loadash": "^1.0.0",
     "mongoose": "^4.11.12",

@@ -22,7 +22,7 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.1",
     "express": "^4.15.4",
-    "jsonwebtoken": "^8.1.0",
+    "jsonwebtoken": "^9.0.0",
     "loadash": "^1.0.0",
     "mongoose": "^4.11.12",
     "mongoose-unique-validator": "^1.0.6",
